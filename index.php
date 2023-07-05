@@ -1,9 +1,19 @@
 <?php
 
     if(isset($_GET['passwordLength']) && $_GET['passwordLength'] != ''){
-        $length = $_GET['passwordLength'];
-       var_dump($length);
-        
+        function generatePassword (){
+            $length = $_GET['passwordLength'];
+            
+            $password='';
+            for ($i=0; $i <$length ; $i++) { 
+                
+                $number= rand(0,9);
+                $password= $password. $number;
+            };
+
+            
+            return $password;
+        }
 
     };
 
@@ -27,6 +37,11 @@
                 <input type="number" id="password" name="passwordLength">
                 <button type="submit">Invia</button>
             </form>
+        </div>
+        <div>
+        <?php if(isset($_GET['passwordLength']) && $_GET['passwordLength'] != ''){ ?>
+        <?php echo generatePassword()?>
+        <?php }?>
         </div>
         
     </body>
