@@ -2,20 +2,15 @@
 
     // funzione generatrice password
     function generatePassword (){
-        $length = $_GET['passwordLength'];
-        
-        $password='';
-        for ($i=0; $i <$length ; $i++) { 
-            $upperCase= chr(rand(65,90)); 
-            $lowerCase=chr(rand(97,122));
-            $symbols=chr(rand(33,47));
-            $number= rand(0,9);
-            // concatenamento caratteri ottenuti
-            $password= $password. $number. $upperCase. $lowerCase. $symbols ;
-        };
-
-        // randomizzo la stringa
-        return str_shuffle($password);
+        $length =$_GET['passwordLength'];
+        $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()';
+        $password = []; 
+        $charactersLength = strlen($characters) - 1;
+        for ($i = 0; $i < $length; $i++) {
+            $n = rand(0, $charactersLength);
+            $password[] = $characters[$n];
+        }
+        return implode($password);
     }
 
 

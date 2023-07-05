@@ -1,9 +1,10 @@
 <?php
     session_start(); 
-    
-    include __DIR__. '/functions.php';
+  
+
     if(isset($_GET['passwordLength']) && $_GET['passwordLength'] != ''){
         // recupero la funzione
+        include __DIR__. '/functions.php';
         $password = generatePassword();
         // metto una condizione se non si inserisca un numero
     } elseif ($_GET['passwordLength'] == '') {
@@ -33,7 +34,7 @@
                         </div>
                         <?php if(isset($password) && $password != ''){ ?>
                             <h3>
-                                <?php echo$password ?>
+                                <?php echo $password ?>
                         </h3>
                         <div>
                             Non mostrare e non condividere con nessuno la password!
