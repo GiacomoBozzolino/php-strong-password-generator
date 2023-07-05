@@ -1,7 +1,6 @@
 <?php
-
-   include 'functions.php';
-
+   
+ 
 
 ?>
 
@@ -17,16 +16,14 @@
 </head>
     <body>
         <div>
-            <form action="index.php" method="get">
+            <form action="showPassword.php" method="get">
                 <label for="password">Lunghezza password</label>
                 <input type="number" id="password" name="passwordLength">
                 <button type="submit">Invia</button>
             </form>
         </div>
         <div>
-        <?php if(isset($_GET['passwordLength']) && $_GET['passwordLength'] != ''){ ?>
-        <?php echo generatePassword()?>
-        <?php }?>
+        
         </div>
         
     </body>
